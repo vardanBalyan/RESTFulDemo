@@ -3,10 +3,19 @@ package com.ttn.RESTFulDemo.employee;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
+/*
+* Making an employee class having the id, name, age as the data
+* members of the class.*/
 public class Employee {
     private int id;
+    /*
+    * using the validation api to validate the size of string
+    * using the @Size annotation*/
     @Size(min = 3)
     private String name;
+    /*
+    * using @Positive annotation of validation api to check
+    * if age entered s positive or not*/
     @Positive
     private int age;
 

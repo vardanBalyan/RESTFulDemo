@@ -12,6 +12,7 @@ public class WelcomeResponse {
     //@GetMapping(path = "/welcome-response")
     public String welcome()
     {
+        /*printing the message*/
         return "Welcome to spring boot.";
     }
 }
