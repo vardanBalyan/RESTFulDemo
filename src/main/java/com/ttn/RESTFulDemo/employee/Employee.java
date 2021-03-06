@@ -1,8 +1,13 @@
 package com.ttn.RESTFulDemo.employee;
 
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 public class Employee {
     private int id;
+    @Size(min = 3)
     private String name;
+    @Positive
     private int age;
 
     public Employee(int id, String name, int age) {
