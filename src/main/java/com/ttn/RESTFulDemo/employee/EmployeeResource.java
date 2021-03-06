@@ -28,8 +28,8 @@ public class EmployeeResource {
     }
 
     /*
-     * Method implementing the GET request to get a specific employee from the list for the
-     * provided id*/
+     * Method implementing the GET request to get a specific employee from the list using
+     * path variable id*/
     @GetMapping(path = "/employee/{id}")
     public Employee getOneEmployee(@PathVariable int id)
     {
