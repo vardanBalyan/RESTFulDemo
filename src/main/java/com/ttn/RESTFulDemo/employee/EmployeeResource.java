@@ -1,9 +1,12 @@
 package com.ttn.RESTFulDemo.employee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 /*
@@ -43,9 +46,19 @@ public class EmployeeResource {
     /*
      * Method implementing the POST request to add employee to the list*/
     @PostMapping(path = "/employee")
-    public void addEmployee(@Valid @RequestBody Employee employee)
+    public ResponseEntity<Object> addEmployee(@Valid @RequestBody Employee employee)
     {
-        service.save(employee);
+        Employee savedEmployee = service.save(employee);
+
+        /*
+        * Creating 201 created response for the POST request, instead
+        * of 200 success request*/
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(savedEmployee.getId()).toUri();
+
+        return ResponseEntity.created(location).build();
     }
 
     /*

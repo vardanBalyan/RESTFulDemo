@@ -52,9 +52,10 @@ public class EmployeeService {
 
     /*
     * add new employee to the list*/
-    public void save(Employee employee) {
+    public Employee save(Employee employee) {
         employee.setId(++employeeIdCounter);
         employeeList.add(employee);
+        return employee;
     }
 
     /*
